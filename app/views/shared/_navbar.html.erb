@@ -1,12 +1,18 @@
 <div class="navbar">
   <!-- Logo -->
   <div class="navbar-left">
+
     <div class="navbar-logo">
       <%= link_to root_path do %>
         <%= image_tag "favicon.png" %>
       <% end %>
     </div>
+
     <div class="navbar-brand">
       <p>Rentoo</p>
     </div>
+  </div>
+  <div class=navbar-right>
+    <%= link_to "ALL GAMES", games_path, class: 'navbar-link' %>
+  </div>
 </div>
