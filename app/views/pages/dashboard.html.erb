@@ -71,7 +71,10 @@
       <div class="add-game">
         <%= simple_form_for(@game) do |g| %>
           <div class="form-inputs">
-            <%= g.input :results, label: 'Add Games' %>
+            <%= g.input :player_one, collection: Player.all %>
+          </div>
+          <div class="form-inputs">
+            <%= g.input :player_two, collection: Player.all %>
           </div>
           <div class="form-actions">
             <%= g.button :submit, 'Add game', class: "btn btn-info" %>
