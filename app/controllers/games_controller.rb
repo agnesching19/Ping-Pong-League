@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :destroy]
+  before_action :set_player_one, only: [:create]
+  before_action :set_player_two, only: [:create]
 
   def index
     @games = Game.all
@@ -7,7 +9,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @player = Player.new(player_params)
+    @player = Player.new
     if @game.save
       redirect_to games_path
     else
@@ -17,7 +19,6 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @player = Player.new
   end
 
   def show
@@ -34,11 +35,15 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
-  def game_params
-    params.require(:game).permit(:results, :player)
+  def set_player_one
+    @player_one = Player.find_by_id(params[:player_id])
   end
 
-  def player_params
-    params.permit(:name)
+  def set_player_two
+    @player_two = Player.find_by_id(params[:player_id])
+  end
+
+  def game_params
+    params.require(:game).permit(:results, :player)
   end
 end

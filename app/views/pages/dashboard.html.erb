@@ -70,6 +70,15 @@
     <div class="col-xs-6 col-sm-4">
       <div class="add-game">
         <%= simple_form_for(@game) do |g| %>
+          <% if @game.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @game.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
           <div class="form-inputs">
             <%= g.input :player_one, collection: Player.all %>
           </div>
@@ -85,7 +94,8 @@
 
     <div class="col-xs-6 col-sm-4">
       <div class='game-result'>
-        <%= @games[-1].player_one %>
+        <h3>Latest Games</h3>
+
       </div>
     </div>
   </div>
