@@ -80,10 +80,10 @@
             </div>
           <% end %>
           <div class="form-inputs">
-            <%= g.input :player_one, collection: Player.all %>
+            <%= g.input :player_one_id, collection: Player.all  %>
           </div>
           <div class="form-inputs">
-            <%= g.input :player_two, collection: Player.all %>
+            <%= g.input :player_two_id, collection: Player.all %>
           </div>
           <div class="form-actions">
             <%= g.button :submit, 'Add game', class: "btn btn-info" %>
