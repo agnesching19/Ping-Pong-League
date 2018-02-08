@@ -1,24 +1,9 @@
-# README
+# This is a Rails app done for Rentoo coding test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. If you want to run this app locally, please run localhost:3000.
 
-Things you may want to cover:
+2. There are 4 tables used in this app - player, game, player-game, score.
 
-* Ruby version
+3. player_game served as a join table between player and game tanbles.
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
