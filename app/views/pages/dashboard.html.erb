@@ -1,27 +1,44 @@
 <div class="container">
   <h1>Rentoo Ping Pong League</h1>
 
-
-  <div class='player-new'>
-    <%= simple_form_for(@player) do |p| %>
-      <% if @player.errors.any? %>
-        <div class="errors-container">
-          <ul>
-            <% @player.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="form-inputs">
-        <%= p.input :name, placeholder: "Enter your name" %>
-      </div>
-
-      <div class="form-actions">
-        <%= p.button :submit, 'CREATE', class: "btn btn-info" %>
-      </div>
-    <% end %>
+  <div class='top-league'>
+    Top 5 Players Table
   </div>
 
+  <div class="row">
+    <div class="col-xs-6 col-sm-4">
+      <div class='player-new'>
+        <%= simple_form_for(@player) do |p| %>
+          <% if @player.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @player.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-inputs">
+            <%= p.input :name, label: 'Add a new player', placeholder: "e.g. Bob" %>
+          </div>
+
+          <div class="form-actions">
+            <%= p.button :submit, 'CREATE', class: "btn btn-info" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+      <div class="add-game">
+        New Game here
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-4">
+      <div class='game-result'>
+        Game results list
+      </div>
+    </div>
+  </div>
 </div>
