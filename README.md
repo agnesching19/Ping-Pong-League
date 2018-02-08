@@ -10,8 +10,8 @@
 
 # Description
 
-2. There are 4 tables used in this app - player, game, player-game, score.
+1. There are 4 tables used in this app - player, game, player-game, score.
 
-3. player_game served as a join table between player and game tanbles.
+2. player_game served as a join table between player and game tanbles.
 
-4. Trying to apply player_game on new game function..
+3. Trying to apply player_game on new game function..
