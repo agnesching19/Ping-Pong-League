@@ -1,2 +1,10 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colours";
+@import "config/bootstrap_variables";
+
+// External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// CSS partials

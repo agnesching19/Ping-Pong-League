@@ -1,0 +1,23 @@
+<h1>this is a list of all players</h1>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <td>Number</td>
+        <td>Name</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @players.each do |player| %>
+        <tr>
+          <td><%= player.id %></td>
+          <td><%= player.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<br>
+
+<%= link_to "HOME", root_path, class: 'btn btn-info' %>
+</div>

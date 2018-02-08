@@ -1,0 +1,22 @@
+<div class="container">
+  <%= simple_form_for(@player) do |p| %>
+    <% if @player.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @player.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inputs">
+      <%= p.input :name, placeholder: "Enter your name" %>
+    </div>
+
+    <div class="form-actions">
+      <%= p.button :submit, 'CREATE', class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>
+
