@@ -1,7 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :destroy]
-  before_action :set_player_one, only: [:create]
-  before_action :set_player_two, only: [:create]
+  before_action :set_player, only: [:create]
 
   def index
     @games = Game.all
@@ -35,15 +34,11 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
-  def set_player_one
-    @player_one = Player.find_by_id(params[:player_id])
-  end
-
-  def set_player_two
-    @player_two = Player.find_by_id(params[:player_id])
+  def set_player
+    @player = Player.find_by_id(params[:player])
   end
 
   def game_params
-    params.require(:game).permit(:results, :player)
+    params.require(:game).permit(:results, :player_one, :player_two)
   end
 end
