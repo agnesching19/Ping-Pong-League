@@ -7,6 +7,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @player = Player.new(player_params)
     if @game.save
       redirect_to games_path
     else
@@ -16,6 +17,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @player = Player.new
   end
 
   def show
@@ -33,6 +35,10 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:results, :player_one, :player_two)
+    params.require(:game).permit(:results, :player)
+  end
+
+  def player_params
+    params.permit(:name)
   end
 end
