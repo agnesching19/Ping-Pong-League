@@ -1,0 +1,32 @@
+.footer {
+  width: 100%;
+  padding: 1rem;
+  background-color: $footer;
+  text-align: center;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo img {
+  height: 40px;
+  width: 40px;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.footer-box {
+  display: flex;
+}
+
+.footer-copyright {
+  text-decoration: none !important;
+  font-size: 14px;
+  color: $gray !important;
+  margin-top: 20px;
+}
+
+.content {
+  min-height: calc(100vh - 70px - 65px);
+}

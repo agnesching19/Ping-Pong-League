@@ -15,9 +15,16 @@
   background: white;
   margin-top: 50px;
   width: 300px;
+  padding: 10px;
 }
 
 .game-result {
   background: white;
   margin-top: 50px;
+  height: 150px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 10px;
 }

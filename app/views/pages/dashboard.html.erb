@@ -2,7 +2,44 @@
   <h1>Rentoo Ping Pong League</h1>
 
   <div class='top-league'>
-    Top 5 Players Table
+    <table>
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>Name</td>
+          <td>Won</td>
+          <td>Lost</td>
+          <td>Winning %</td>
+          <td>Points</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="row">
@@ -24,20 +61,28 @@
           </div>
 
           <div class="form-actions">
-            <%= p.button :submit, 'CREATE', class: "btn btn-info" %>
+            <%= p.button :submit, 'Add player', class: "btn btn-info" %>
           </div>
         <% end %>
       </div>
     </div>
+
     <div class="col-xs-6 col-sm-4">
       <div class="add-game">
-        New Game here
+        <%= simple_form_for(@game) do |g| %>
+          <div class="form-inputs">
+            <%= g.input :results, label: 'Add Games' %>
+          </div>
+          <div class="form-actions">
+            <%= g.button :submit, 'Add game', class: "btn btn-info" %>
+          </div>
+        <% end %>
       </div>
     </div>
 
     <div class="col-xs-6 col-sm-4">
       <div class='game-result'>
-        Game results list
+        <h4>Latest Games</h4>
       </div>
     </div>
   </div>
