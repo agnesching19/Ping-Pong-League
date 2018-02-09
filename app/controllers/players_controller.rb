@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: [:show]
+  before_action :set_player, only: [:show, :destroy]
 
   def index
     @players = Player.all
@@ -18,7 +18,9 @@ class PlayersController < ApplicationController
     @player = Player.new
   end
 
-  def show
+  def destroy
+    @player.destroy
+    redirect_to players_path
   end
 
   private

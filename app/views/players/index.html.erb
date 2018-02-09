@@ -6,6 +6,7 @@
       <tr>
         <td>Number</td>
         <td>Name</td>
+        <td></td>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
         <tr>
           <td><%= player.id %></td>
           <td><%= player.name %></td>
+          <td><%= link_to "Delete", player_path(player), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: 'btn btn-info' %></td>
         </tr>
       <% end %>
     </tbody>
