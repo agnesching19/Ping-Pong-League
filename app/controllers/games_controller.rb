@@ -26,8 +26,14 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @player_one = Player.find_by_id(params[:player_one_id])
-    @player_two = Player.find_by_id(params[:player_two_id])
+    @game = Game.find(params[:id])
+    @player_one = @game.player_one
+    @player_two = @game.player_two
+    if @game.win === @player_one
+      @game.lost === @player_two
+    else
+      @game.lost === @player_one
+    end
   end
 
   def update
@@ -54,6 +60,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:results, :player_one_id, :player_two_id)
+    params.require(:game).permit(:results, :player_one_id, :player_two_id, :win, :lost)
   end
 end

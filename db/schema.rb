@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20180209134501) do
     t.string "lost"
   end
 
+  create_table "player_games", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_player_games_on_game_id"
+    t.index ["player_id"], name: "index_player_games_on_player_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -38,5 +47,7 @@ ActiveRecord::Schema.define(version: 20180209134501) do
     t.index ["player_id"], name: "index_scores_on_player_id"
   end
 
+  add_foreign_key "player_games", "games"
+  add_foreign_key "player_games", "players"
   add_foreign_key "scores", "players"
 end
