@@ -26,11 +26,13 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @player_one = Player.find_by_id(params[:player_one_id])
+    @player_two = Player.find_by_id(params[:player_two_id])
   end
 
   def update
-    if @member.update(member_params)
-      redirect_to team_path(@team)
+    if @game.update(game_params)
+      redirect_to root_path
     else
       render :edit
     end

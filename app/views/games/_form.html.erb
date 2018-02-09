@@ -1,0 +1,5 @@
+<%= simple_form_for [@game] do |f| %>
+  <%= f.input :win, collection: [@player_one.name, @player_two.name] %>
+  <%= f.input :lost, collection: [@player_one.name, @player_two.name] %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+<% end %>
