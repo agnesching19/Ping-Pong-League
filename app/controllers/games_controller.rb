@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :destroy]
+  before_action :set_game, only: [:show, :update, :edit, :destroy]
   before_action :set_player, only: [:create]
 
   def index
@@ -23,6 +23,17 @@ class GamesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @member.update(member_params)
+      redirect_to team_path(@team)
+    else
+      render :edit
+    end
   end
 
   def destroy
