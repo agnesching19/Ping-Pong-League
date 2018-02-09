@@ -4,7 +4,7 @@
   <ul>
     <% @games.each do |game| %>
       <li>
-        <%= game.player_one %> - <%= game.player_two %>
+        <%= game.player_one.name %> - <%= game.player_two.name %>
         <%= link_to "Delete", game_path(game), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: 'btn btn-info' %>
       </li>
     <% end %>
