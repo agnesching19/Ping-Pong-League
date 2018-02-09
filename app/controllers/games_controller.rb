@@ -29,14 +29,15 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @player_one = @game.player_one
     @player_two = @game.player_two
-    if @game.win === @player_one
-      @game.lost === @player_two
-    else
-      @game.lost === @player_one
-    end
+    # if @game.win == @player_one
+    #   @game.lost == @player_two
+    # else
+    #   @game.lost == @player_one
+    # end
   end
 
   def update
+
     if @game.update(game_params)
       redirect_to root_path
     else
