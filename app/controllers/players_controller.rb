@@ -3,6 +3,7 @@ class PlayersController < ApplicationController
 
   def index
     @players = Player.all
+    @score = Score.new
   end
 
   def create
@@ -16,6 +17,10 @@ class PlayersController < ApplicationController
 
   def new
     @player = Player.new
+  end
+
+  def show
+    @scores = Score.where(player_id: @player)
   end
 
   def destroy

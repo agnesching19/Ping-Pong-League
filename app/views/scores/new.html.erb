@@ -1,0 +1,18 @@
+<div class="container">
+  <%= simple_form_for([@player, @score]) do |s| %>
+    <% if @score.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @score.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-actions">
+      <%= s.button :submit, 'NEW', class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>
+
