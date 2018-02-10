@@ -7,7 +7,8 @@
         <%= game.player_one.name %> - <%= game.player_two.name %>
         <p>WINNER <%= game.win %> - FAILER <%= game.lost %></p>
 
-        <%= simple_form_for [@game, @score] do |f| %>
+        <%= simple_form_for [game, @score] do |f| %>
+          <%= f.input :player_id, collection: [game.win] %>
           <%= f.submit 'NEW SCORE', class: 'btn btn-primary' %>
         <% end %>
 

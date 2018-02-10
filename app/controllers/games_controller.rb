@@ -7,6 +7,7 @@ class GamesController < ApplicationController
     @score = Score.new
     @player_one = Player.find_by_id(params[:player_one_id])
     @player_two = Player.find_by_id(params[:player_two_id])
+
   end
 
   def create
