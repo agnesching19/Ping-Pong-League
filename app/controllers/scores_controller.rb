@@ -11,6 +11,7 @@ class ScoresController < ApplicationController
   end
 
   def create
+    @score.player_id = @winner
     @score = Score.new(score_params)
     if @score.save
       redirect_to game_path(@game)
@@ -26,10 +27,15 @@ class ScoresController < ApplicationController
   end
 
   def set_player
-    @player = Player.find(params[:player_id])
+    @game = Game.find(params[:game_id])
+    if @game.win.to_i === @game.player_one_id
+      @winner = Player.find(@game.player_one_id)
+    elsif @game.win.to_i === @game.player_two_id
+      @winner = Player.find(@game.player_two_id)
+    end
   end
 
   def score_params
-    params.permit(:player_id, :game_id)
+    params.permit(:game_id)
   end
 end
