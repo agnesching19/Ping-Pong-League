@@ -4,6 +4,7 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+    @score = Score.new
     @player_one = Player.find_by_id(params[:player_one_id])
     @player_two = Player.find_by_id(params[:player_two_id])
   end
@@ -37,7 +38,6 @@ class GamesController < ApplicationController
   end
 
   def update
-
     if @game.update(game_params)
       redirect_to root_path
     else
