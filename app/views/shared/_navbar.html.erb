@@ -12,7 +12,12 @@
       <p>Rentoo</p>
     </div>
   </div>
-  <div class=navbar-right>
-    <%= link_to "ALL GAMES", games_path, class: 'navbar-link' %>
+  <div class="navbar-right">
+    <div class="navbar-games">
+      <%= link_to "ALL GAMES", games_path, class: 'navbar-link' %>
+    </div>| &nbsp &nbsp
+    <div class="navbar-players">
+      <%= link_to "ALL PLAYERS", players_path, class: 'navbar-link' %>
+    </div>
   </div>
 </div>
