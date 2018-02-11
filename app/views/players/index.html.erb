@@ -4,8 +4,10 @@
   <table>
     <thead>
       <tr>
-        <td>Number</td>
+        <td></td>
         <td>Name</td>
+        <td>Games</td>
+        <td>Scores</td>
         <td></td>
       </tr>
     </thead>
@@ -14,8 +16,9 @@
         <tr>
           <td><%= player.id %></td>
           <td><%= player.name %></td>
+          <td>games for this player</td>
+          <td>scores</td>
           <td><%= link_to "Delete", player_path(player), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: 'btn btn-info' %></td>
-          <td><%= link_to "NEW SCORE", new_player_score_path(player) %></td>
         </tr>
       <% end %>
     </tbody>

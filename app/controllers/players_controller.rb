@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all
     @score = Score.new
+
   end
 
   def create
