@@ -5,7 +5,13 @@
     <% @games.each do |game| %>
       <li>
         <%= game.player_one.name %> - <%= game.player_two.name %>
-        <p>WINNER <%= game.win %> - FAILER <%= game.lost %></p>
+
+        <% if (game.win.to_i === game.player_one_id) %>
+          <p><%= '1 - 0' %></p>
+        <% else %>
+          <p><%= '0 - 1' %></p>
+        <% end %>
+
 
         <%= simple_form_for [game, @score] do |f| %>
           <% if @score.errors.any? %>
