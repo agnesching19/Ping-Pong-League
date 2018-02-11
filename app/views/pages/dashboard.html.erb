@@ -13,31 +13,18 @@
           <td>Points</td>
         </tr>
       </thead>
+
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <% @players.each do |player| %>
+          <tr>
+            <td><%= player.id %></td>
+            <td><%= player.name %></td>
+            <td></td>
+            <td></td>
+            <td>%</td>
+            <td></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
