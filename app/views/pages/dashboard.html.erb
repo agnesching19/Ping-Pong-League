@@ -44,7 +44,7 @@
           <% end %>
 
           <div class="form-inputs">
-            <%= p.input :name, label: 'Add a new player', placeholder: "e.g. Bob" %>
+            <%= p.input :name, label: 'Add a new player', placeholder: "e.g. Bob", :label_html => { class: 'type' } %>
           </div>
 
           <div class="form-actions">
@@ -56,33 +56,36 @@
 
     <div class="col-xs-6 col-sm-4">
       <div class="add-game">
-        <%= simple_form_for(@game) do |g| %>
-          <% if @game.errors.any? %>
-            <div class="errors-container">
-              <ul>
-                <% @game.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
+        <h3 class='new-game'>Add Games</h3>
+        <div class=game-players>
+          <%= simple_form_for(@game) do |g| %>
+            <% if @game.errors.any? %>
+              <div class="errors-container">
+                <ul>
+                  <% @game.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="form-inputs">
+              <%= g.input :player_one_id, collection: Player.all, :label_html => { class: 'type' } %>
+            </div>
+            <div class="form-inputs">
+              <%= g.input :player_two_id, collection: Player.all, :label_html => { class: 'type' } %>
+            </div>
+            <div class="form-actions">
+              <%= g.button :submit, 'Add game', class: "btn btn-info" %>
             </div>
           <% end %>
-          <div class="form-inputs">
-            <%= g.input :player_one_id, collection: Player.all  %>
-          </div>
-          <div class="form-inputs">
-            <%= g.input :player_two_id, collection: Player.all %>
-          </div>
-          <div class="form-actions">
-            <%= g.button :submit, 'Add game', class: "btn btn-info" %>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
 
     <div class="col-xs-6 col-sm-4">
       <div class='game-result'>
-        <h3>Latest Games</h3>
-        <div>
+        <h3 class='latest-game'>Latest Games</h3>
+        <div class='game-list'>
           <% @games.order(:created_at).reverse[0..2].each do |game| %>
             <p>
               <%= game.player_one.name %>
